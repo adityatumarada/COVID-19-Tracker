@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cb779560-1d99-4575-96ae-f9a623624aeb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZuM5RjFlw6EjlIiE1JvYU1GjKR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/aditya/covidtracker" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RunManager">
+    <configuration name="CovidTrackerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aditya.covidtracker.CovidTrackerApplication" />
+      <module name="covid-tracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aditya.covidtracker.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CovidTrackerApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb779560-1d99-4575-96ae-f9a623624aeb" name="Default Changelist" comment="" />
+      <created>1585684341599</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585684341599</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585835557850">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1585835557850" />
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1585820340355">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1585820340355" />
+    <state x="577" y="350" key="Github.ShareDialog" timestamp="1585817422425">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="577" y="350" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1585817422425" />
+    <state x="480" y="163" key="Github.UntrackedFilesDialog" timestamp="1585817443728">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="480" y="163" key="Github.UntrackedFilesDialog/0.0.1440.900@0.0.1440.900" timestamp="1585817443728" />
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom" timestamp="1585838569222">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585838569222" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.792@0.23.1440.792" timestamp="1585810788397" />
+    <state width="1398" height="303" key="GridCell.Tab.0.center" timestamp="1585838569221">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585838569221" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.792@0.23.1440.792" timestamp="1585810788396" />
+    <state width="1398" height="303" key="GridCell.Tab.0.left" timestamp="1585838569220">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585838569220" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.792@0.23.1440.792" timestamp="1585810788396" />
+    <state width="1398" height="303" key="GridCell.Tab.0.right" timestamp="1585838569222">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585838569222" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.792@0.23.1440.792" timestamp="1585810788397" />
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1585838569224">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585838569224" />
+    <state width="1398" height="303" key="GridCell.Tab.1.center" timestamp="1585838569223">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1585838569223" />
+    <state width="1398" height="303" key="GridCell.Tab.1.left" timestamp="1585838569222">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1585838569222" />
+    <state width="1398" height="303" key="GridCell.Tab.1.right" timestamp="1585838569223">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1585838569223" />
+    <state x="258" y="112" key="Maven.ArtifactSearchDialog" timestamp="1585829787640">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="258" y="112" key="Maven.ArtifactSearchDialog/0.0.1440.900@0.0.1440.900" timestamp="1585829787640" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1585835926460">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1585835926460" />
+    <state x="503" y="235" key="chooseDestDirectoryDialog" timestamp="1585722329061">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="503" y="235" key="chooseDestDirectoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1585722329061" />
+    <state x="397" y="251" key="com.intellij.ide.util.TipDialog" timestamp="1585684349392">
+      <screen x="0" y="23" width="1440" height="792" />
+    </state>
+    <state x="397" y="251" key="com.intellij.ide.util.TipDialog/0.23.1440.792@0.23.1440.792" timestamp="1585684349392" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1585721961097">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585721961097" />
+  </component>
+</project>
