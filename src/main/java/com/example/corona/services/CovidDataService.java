@@ -1,9 +1,6 @@
 package com.example.corona.services;
 
 import com.example.corona.models.LocationStats;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
-import org.springframework.http.HttpRequest;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +8,12 @@ import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.net.MalformedURLException;
-import java.net.URI;
-
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
-
 
 
 @Service
@@ -30,9 +22,9 @@ public class CovidDataService {
     public static boolean isInteger(String s) {
         try {
             Integer.parseInt(s);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return false;
-        } catch(NullPointerException e) {
+        } catch (NullPointerException e) {
             return false;
         }
         // only got here if we didn't return false
@@ -52,123 +44,111 @@ public class CovidDataService {
         }
     }
 
-    public List<LocationStats> getAllStats() {
+    private HashMap<String, LocationStats> allStats = new HashMap<>();
+    private List<String> dates = new ArrayList<>();
+    private List<String> keys = new ArrayList<>();
+
+    public List<String> getKeys() {
+        return keys;
+    }
+    public HashMap<String, LocationStats> getAllStats() {
         return allStats;
     }
 
     public List<String> getDates() {
         return dates;
     }
-    public List<Integer> getIndia() {
-        return india;
-    }
-    public List<Integer> getGlobal() {
-        return global;
-    }
-
-    private List<LocationStats> allStats = new ArrayList<>();
-    private List<String> dates = new ArrayList<>();
-    private List<Integer> india = new ArrayList() ;
-    private List<Integer> global = new ArrayList() ;
 
     @PostConstruct
-    @Scheduled(cron = "* * 1 * * *")
+    @Scheduled(cron = "* * * 1 * *")
     public void fetchVirusData() throws IOException {
-        List<LocationStats> newStats = new ArrayList<>();
+        HashMap<String, LocationStats> newStats = new HashMap<>();
         List<String> newdates = new ArrayList<>();
 
+
+//extracting dates
         BufferedReader br = new BufferedReader(new InputStreamReader(DATA_URL.openStream()));
         String header = br.readLine();
         List<String> temdate = Arrays.asList(header.split(","));
-        for(int i=4;i<temdate.size();i++)
+        for (int i = 4; i < temdate.size(); i++)
             newdates.add(temdate.get(i));
-
         dates = newdates;
 
+
+//adding confirmed list
         String s = null;
-        List<Integer> newindia = new ArrayList() ;
-        List<Integer> newglobal = new ArrayList() ;
-        int flag=0;
+        List<String> tempkeys= new ArrayList<>();
         while ((s = br.readLine()) != null) {
             List<String> temp = Arrays.asList(s.split(","));
-            if (!temp.get(1).toLowerCase().equals("canada")) {
+
+            if (temp.size()-4 == (dates.size()) ) {
+
+                String temphash = temp.get(2).concat(temp.get(3));
+                if (temp.get(1).toLowerCase().equals("india"))
+                    System.out.println(temphash);
+                tempkeys.add(temphash);
                 LocationStats locationStats = new LocationStats();
                 locationStats.setState(temp.get(0));
                 locationStats.setCountry(temp.get(1));
                 int size = temp.size();
-                locationStats.setLatestCases((Integer.parseInt(temp.get(size - 1))));
-                locationStats.setChangeCases((Integer.parseInt(temp.get(size - 1))) - (Integer.parseInt(temp.get(size - 2))));
-                newStats.add(locationStats);
-
-                if(flag==0) {
-                    for (int k = 4; k < size; k++) {
-                        newglobal.add((Integer.parseInt(temp.get(k))));
-                    }
-                    flag++;
+                List<Integer> confstats = new ArrayList<>();
+                List<Integer> zero = new ArrayList<>();
+                for (int i = 4; i < size; i++) {
+                    confstats.add(Integer.parseInt(temp.get(i)));
+                    zero.add(0);
                 }
-                else
-                {
-                    int k=0;
-                    while(!isInteger(temp.get(k)))
-                    {
-                        k++;
-                    }
-                    int a=k;
-                    List<Integer> templist = new ArrayList<>();
-
-                        for (; k < temp.size(); k++) {
-                            templist.add(newglobal.get(k-a)+(Integer.parseInt(temp.get(k))));
-                        }
-
-                    newglobal=templist;
-                }
-            }
-            global=newglobal;
-            if (temp.get(1).toLowerCase().equals("india")) {
-
-                for ( int j=4;j<temp.size();j++)
-                {
-                    if(!temp.get(j).equals(""))
-                        newindia.add((Integer.parseInt(temp.get(j))));
-                    else
-                        newindia.add(0);
-                }
+                locationStats.setConfirmed(confstats);
+                locationStats.setRecovered(zero);
+                locationStats.setDeaths(zero);
+                newStats.put(temphash, locationStats);
             }
         }
 
-        india = newindia;
+
+        keys=tempkeys;
+//adding recovered list
         br = new BufferedReader(new InputStreamReader(RECOVERED_URL.openStream()));
         header = br.readLine();
-        int i = 0;
         while ((s = br.readLine()) != null) {
             List<String> temp = Arrays.asList(s.split(","));
-            if (!temp.get(1).toLowerCase().equals("canada")) {
+            String temphash = temp.get(2).concat(temp.get(3));
+            if (temp.size()-4 == (dates.size()) && newStats.containsKey(temphash)) {
+                LocationStats locationStats = newStats.get(temphash);
                 int size = temp.size();
-                newStats.get(i).setRecoverd((Integer.parseInt(temp.get(size - 1))));
-                i++;
+                List<Integer> recstats = new ArrayList<>();
+                for (int i = 4; i < size; i++)
+                    recstats.add(Integer.parseInt(temp.get(i)));
+
+                locationStats.setRecovered(recstats);
+                newStats.replace(temphash, locationStats);
             }
         }
 
-
-        i = 0;
+//adding death list
         br = new BufferedReader(new InputStreamReader(DEATHS_URL.openStream()));
         header = br.readLine();
         while ((s = br.readLine()) != null) {
             List<String> temp = Arrays.asList(s.split(","));
-            if (!temp.get(1).toLowerCase().equals("canada")) {
+            String temphash = temp.get(2).concat(temp.get(3));
+            if (temp.size()-4 == (dates.size())&&newStats.containsKey(temphash)) {
+
+                LocationStats locationStats = newStats.get(temphash);
                 int size = temp.size();
-                newStats.get(i).setDeaths((Integer.parseInt(temp.get(size - 1))));
-                i++;
+                List<Integer> deathstats = new ArrayList<>();
+                for (int i = 4; i < size; i++)
+                    deathstats.add(Integer.parseInt(temp.get(i)));
+
+                locationStats.setDeaths(deathstats);
+                newStats.replace(temphash, locationStats);
             }
+
         }
         allStats = newStats;
 
-
-
-
- }
-
+    }
 }
+
+
 
 
 

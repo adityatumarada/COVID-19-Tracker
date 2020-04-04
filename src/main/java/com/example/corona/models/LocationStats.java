@@ -1,37 +1,14 @@
 package com.example.corona.models;
 
 
+import java.util.List;
+
 public class LocationStats {
     private String state;
     private String country;
-    private int latestCases;
-    private int changeCases;
-    private int recoverd;
-    private int deaths;
-
-    public int getDeaths() {
-        return deaths;
-    }
-
-    public void setDeaths(int deaths) {
-        this.deaths = deaths;
-    }
-
-    public int getRecoverd() {
-        return recoverd;
-    }
-
-    public void setRecoverd(int recoverd) {
-        this.recoverd = recoverd;
-    }
-
-    public int getChangeCases() {
-        return changeCases;
-    }
-
-    public void setChangeCases(int changeCases) {
-        this.changeCases = changeCases;
-    }
+    private List<Integer> Confirmed;
+    private List<Integer> recovered;
+    private List<Integer> deaths;
 
     public String getState() {
         return state;
@@ -49,13 +26,29 @@ public class LocationStats {
         this.country = country;
     }
 
-    public int getLatestCases() {
-        return latestCases;
+
+
+    public List<Integer> getConfirmed() {
+        return Confirmed;
     }
 
-    public void setLatestCases(int latestCases) {
-        this.latestCases = latestCases;
+    public void setConfirmed(List<Integer> confirmed) {
+        Confirmed = confirmed;
     }
 
+    public List<Integer> getRecovered() {
+        return recovered;
+    }
 
+    public void setRecovered(List<Integer> recovered) {
+        this.recovered = recovered;
+    }
+
+    public List<Integer> getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(List<Integer> deaths) {
+        this.deaths = deaths;
+    }
 }
